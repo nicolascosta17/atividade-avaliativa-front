@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# 📋 Projeto React - Cadastro de Participantes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto foi desenvolvido em **React.js** com o objetivo de criar uma aplicação simples de **cadastro de participantes**.  
+O usuário pode adicionar o **nome** e a **idade** de cada participante, visualizar a lista em tempo real e também **baixar um arquivo JSON** com todos os dados cadastrados.  
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ⚙️ Instalação e Configuração
 
-### `npm start`
+### 1. Instalar Node.js
+Foi necessário instalar o **Node.js v22.19.0 (LTS)**, que permite executar código JavaScript fora do navegador, no lado do servidor.  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. Criar o projeto
+No terminal (CMD), execute o comando:  
+```bash
+npx create-react-app nome_projeto
+```
+Esse comando cria uma nova aplicação React do zero.  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> O `npx` é um executor de pacotes para Node.js que faz parte do `npm` (Node Package Manager).  
 
-### `npm test`
+### 3. Entrar na pasta do projeto
+```bash
+cd .\nome_projeto
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 4. Abrir no VS Code
+```bash
+code .
+```
+Ou abra manualmente procurando a pasta e selecionando "Abrir com VS Code" (ou outra IDE).  
 
-### `npm run build`
+### 5. Rodar a aplicação
+```bash
+npm start
+```
+A aplicação será aberta em `http://localhost:3000`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📂 Estrutura do Projeto
+```
+src/
+│── components/
+│   └── lista/
+│       ├── Lista.js     # Componente principal da lista
+│       ├── Lista.css    # Estilização do componente
+│
+│── App.js               # Importa e renderiza o componente Lista
+│── index.js             # Ponto de entrada do React
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📝 Lista.js
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Dentro da pasta `src/components/lista/` criamos o **componente Lista** que é responsável por cadastrar os participantes.  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 📌 Funcionalidades:
+- Adicionar nome e idade de um participante.  
+- Mostrar a lista completa em tempo real.  
+- Baixar a lista em formato `.json`.  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🔹 Estados (useState):
+- **nome** → valor digitado no campo de nome.  
+- **idade** → valor digitado no campo de idade.  
+- **lista** → array com todos os participantes cadastrados.  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 🔹 Funções:
+- **adicionar()** → valida os campos e insere um novo participante na lista.  
+- **salvarLista()** → gera um arquivo JSON e baixa no computador com todos os cadastros.  
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🎨 Estilo (Lista.css)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+O CSS foi criado para deixar a aplicação simples e agradável:  
+- Container centralizado com sombra e bordas arredondadas.  
+- Inputs com borda e padding para melhor usabilidade.  
+- Botão azul (**Adicionar**) e botão verde (**Salvar Lista**).  
+- Lista sem marcadores (`list-style: none`).  
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📄 Exemplo de Uso
+1. Digite o **nome** e a **idade** nos campos de entrada.  
+2. Clique em **Adicionar**.  
+3. O participante será exibido na lista.  
+4. Após adicionar todos, clique em **Salvar Lista**.  
+5. Será baixado um arquivo `lista-colegas.json` com todos os participantes.  
 
-### Analyzing the Bundle Size
+Exemplo do arquivo gerado:
+```json
+[
+  {
+    "nome": "Ana",
+    "idade": 22
+  },
+  {
+    "nome": "Carlos",
+    "idade": 30
+  }
+]
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## ✅ Conclusão
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Este projeto demonstra conceitos importantes de **React**:  
+- Manipulação de **estado com Hooks**.  
+- **Renderização condicional** (mostrar botão de salvar apenas quando existir lista).  
+- **Manipulação de arquivos** para salvar dados localmente no navegador.  
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+É um ótimo exercício para iniciantes aprenderem **como estruturar um projeto React**, criar **componentes reutilizáveis** e aplicar **CSS modularizado**.  
